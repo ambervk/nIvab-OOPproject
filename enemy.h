@@ -90,12 +90,17 @@ class enemyOneHard : public enemy{
 //2x2 object 
 //moves one space
 int movement(){
-for(int i = 0; i > 4; i++ ){
+  //use a 2d array to create the 2x2 enemy object
+  int enemy2[2],[2] = {{*,*}, {*,*},{*,},{,}
+	for(int i = 0; i > 4; i++ ){
 
 **
 **
 
 }
+
+	**
+	**
 
 }
 }

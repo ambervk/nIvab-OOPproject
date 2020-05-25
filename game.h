@@ -5,13 +5,14 @@
 #include <iostream>
 
 
-class Game{
+class game{
   int difficulty ; 
   void resetBoard() ; 
-  bool gameOver ; 
 	char userInput ; 
 public:
-	game(); //default constructor 
+	game(int diff); //default constructor 
+	~game() ; //destructor class 
+	bool gameOver ; 
 
 }
 

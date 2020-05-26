@@ -9,6 +9,8 @@ class game{
   int difficulty ; 
   void resetBoard() ; 
 	char userInput ; 
+	void printBoard() ; 
+	
 public:
 	game(int diff); //default constructor 
 	~game() ; //destructor class 

@@ -8,11 +8,13 @@ class Player(){
 
   public:
   int position() ; 
+	bool checkOverlap() ; // checks to see if the player is overlapping with 
+
   bool isAlive() ; 
 
 //used wasd keys to move player
   int movement(int *x, *y){
-		  switch(move){
+			switch(//move){
   	  case(w):
   	  //move up one space
     	  *y = *y + 1;
@@ -34,6 +36,7 @@ class Player(){
    	  break;
 	  } 
   }
+  //check if position player moves to is taken by enemy
 
 }
 

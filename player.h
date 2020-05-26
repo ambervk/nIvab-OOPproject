@@ -10,6 +10,33 @@ class Player(){
   int position() ; 
   bool isAlive() ; 
 
+//used wasd keys to move player
+  int movement(int *x, *y){
+		  switch(move){
+  	  case(w):
+  	  //move up one space
+    	  *y = *y + 1;
+    	  break;
+
+  	  case(s):
+  	  //move down one space
+    	  *y = *y - 1;
+    	  break;
+
+ 	    case(a):
+  		  //move one space left 
+    	  *x = *x - 1;
+    	  break;
+
+  	  case(d):
+  		//move one space right
+    	  *x = *x + 1;
+   	  break;
+	  } 
+  }
+
+}
+
 }
 
 

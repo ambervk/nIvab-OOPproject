@@ -26,12 +26,14 @@ int main() {
 
  (*thisGame).gameOver = false ; 
 
-//MAIN DRIVER OF THE GAME 
+//-------------------------------------------
+//MAIN DRIVER OF THE GAME
+//------------------------------------------ 
 	while( (*thisGame).gameOver == false){
 		
 
 	}
-
+//-------------------------------------------
 	return 0 ; 
 }
 }

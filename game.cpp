@@ -11,6 +11,7 @@ game::game(int diff){
 } ; 
 
 
+//need a 16x16 arrray to show positions of players and enemies
 
 
 

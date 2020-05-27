@@ -9,14 +9,14 @@ class game{
   int difficulty ; 
   void resetBoard() ; 
 	char userInput ; 
-	void printBoard() ; 
+	int gameboard[16][16];
 	
 public:
 	game(int diff); //default constructor 
 	~game() ; //destructor class 
 	bool gameOver ; 
 
-}
+};
 
 
 

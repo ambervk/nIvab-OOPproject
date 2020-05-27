@@ -4,43 +4,19 @@
 using namespace std ; 
 
 
-class Player(){
+class player{
 
   public:
-  int position() ; 
-	bool checkOverlap() ; // checks to see if the player is overlapping with 
+  int *x,*y ; 
+	 bool checkOverlap(int *x, int *y, int *x_two, int *y_two) ; // checks to see if the player is overlapping with any other object 
+  bool isAlive ; 
 
-  bool isAlive() ; 
+//use w-a-s-d keys to move player
+// also check if position player moves to is taken by enemy
 
-//used wasd keys to move player
-  int movement(int *x, *y){
-			switch(//move){
-  	  case(w):
-  	  //move up one space
-    	  *y = *y + 1;
-    	  break;
+  int movement(char input) ; 
 
-  	  case(s):
-  	  //move down one space
-    	  *y = *y - 1;
-    	  break;
-
- 	    case(a):
-  		  //move one space left 
-    	  *x = *x - 1;
-    	  break;
-
-  	  case(d):
-  		//move one space right
-    	  *x = *x + 1;
-   	  break;
-	  } 
-  }
-  //check if position player moves to is taken by enemy
-
-}
-
-}
+} ; 
 
 
 

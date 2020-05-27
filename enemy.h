@@ -10,7 +10,7 @@ class enemy{
     //virtual function
 		enemy();
 		virtual int movement(int *x, int *y) ; 
-		int* x, y;  // xx
+		int x, y;  // xx
 
 } ; 
 

@@ -21,7 +21,7 @@ int main() {
         } else {
             condition == true;
         }
-        // -----------------------------------------
+   
 
         //-------------------------------------------------------------
         //MAIN DRIVER OF THE GAME
@@ -30,17 +30,74 @@ int main() {
         thisGame = new game(*diff);
 
         (*thisGame).gameOver = false;
+		
+		player user ; 
 
         while ((*thisGame).gameOver == false) {
+
             if ((*thisGame).difficulty = 1) {
-                enemyOneEasy hello;
+				//generate the enemies here according to what we set the difficulty as 
+  
+                enemyOneEasy enemyOne, enemyTwo ;
+				enemyTwoEasy enemyThree, enemyFour ; 
+
+				enemyOne.x = 2 ; 
+				enemyOne.y = 2 ; 
+
+				enemyTwo.x = 4 ; 
+				enemyTwo.y = 4 ; 
+
+				enemyThree.x = 2 ; 
+				enemyThree.y = 8 ; 
+
+				enemyFour.x =  10 ; 
+				enemyFour.y = 10 ; 
+
+				int posArr[7][7] = {{enemyOne.x, enemyOne.y},{enemyTwo.x,enemyTwo.y},{enemyThree.x,enemyThree.y}, {enemyFour.x,enemyFour.y}, {100,100}, {100,100},{100,100} } ; 
+				// we assign the last three rows to be 100 as the function printBoard() will not consider them
 
             } else if ((*thisGame).difficulty = 2) {
+				enemyOneEasy enemyOne, enemyTwo ;
+				enemyTwoEasy enemyThree, enemyFour ; 
+				enemyHard enemyFive, enemySix ;  
 
+				// we can change the initialisations of the coordinates later if we need 
+				enemyOne.x = 2 ; 
+				enemyOne.y = 2 ; 
+
+				enemyTwo.x = 4 ; 
+				enemyTwo.y = 4 ; 
+
+				enemyThree.x = 2 ; 
+				enemyThree.y = 8 ; 
+
+				enemyFour.x =  10 ; 
+				enemyFour.y = 10 ; 
+
+				enemyFive.x = 5 ; 
+				enemyFive.y = 10 ; 
+
+				enemySix.x = 6 ; 
+				enemySix.y = 1 ; 
+				
+				int posArr[7][7] = {{enemyOne.x, enemyOne.y},{enemyTwo.x,enemyTwo.y},{enemyThree.x,enemyThree.y}, {enemyFour.x,enemyFour.y}, {enemyFive.x,enemyFive.y}, {enemySix.x,enemySix.y},{100,100} } ; 
             } else {
                 std::cout << "What blight have you brough upon this cursed land";
             }
 
+			user.isAlive = true ; 
+			int *p ; 
+			*p = 1 ;  // sets the users inital position
+
+			user.x = p; 
+			user.y = p;
+
+			//-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-
+			// this while loop plays the game 
+			while(user.isAlive = true){
+				
+			} 
+			
             //---/------/----/-----------/---/-----------/-----
             //ending screen
             bool condition2 = false;

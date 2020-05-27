@@ -3,7 +3,7 @@
 #include "player.h"
 
 //checks to see if the player overlaps with another object 
-bool player::checkOverlap(int *x, int *y, int *x_two, int *y_two){
+bool player::checkOverlap( int *x_two, int *y_two){
 	if(*x == *x_two && *y == *y_two){
 		return true ; 
 	} 

@@ -5,12 +5,6 @@
 #include "player.h"
 //#include "enemy.h"
 
-
-game::game(int diff){
-	difficulty = diff ; 
-} ; 
-
-
 void game::printBoard(int posArr[7][2]){
 // input the 2d array of all possible characters on the board 
 // first row is ALWAYS the players cooridinates X and Y

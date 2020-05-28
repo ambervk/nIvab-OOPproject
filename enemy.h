@@ -1,54 +1,47 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 #include <iostream>
-using namespace std ; 
+using namespace std;
 
-
-class enemy{
-	//int virtual spawning() ; // defines when the enemy spawns into the grid 
-  public: 
+class enemy {
+    //int virtual spawning() ; // defines when the enemy spawns into the grid
+  public:
     //virtual function
-		enemy();
-		virtual int movement(int *x, int *y) ; 
-		int x, y;  // xx
-
-} ; 
-
+    enemy();
+    virtual int movement();
+    int x, y; // xx
+};
 
 //------------------------------------------------
 
-class enemyOneEasy : public enemy{
-//move up, down, left, right
-//move one space 
+class enemyOneEasy : public enemy {
+    //move up, down, left, right
+    //move one space
 
-public:
-	enemyOneEasy() ; 
-  int movement(int *x, int *y) ; //dc
-} ; 
-
-//------------------------------------------------
-
-class enemyTwoEasy : public enemy{
-//move diagonally only
-//move one space
-
-public:
-	enemyTwoEasy() ; 
-  int movement(int *x, int *y); //dc
-
-} ; 
-
+  public:
+    enemyOneEasy();
+    int movement(); //dc
+};
 
 //------------------------------------------------
 
+class enemyTwoEasy : public enemy {
+    //move diagonally only
+    //move one space
 
-class enemyHard : public enemy{
-//moves all directions
-//moves 2 spaces
-public: 
-	enemyHard() ; 
-	int movement(int *x, int *y)  ; 
- }; 
+  public:
+    enemyTwoEasy();
+    int movement(); //dc
+};
 
+//------------------------------------------------
+
+class enemyHard : public enemy {
+    //moves all directions
+    //moves 2 spaces
+  public:
+    enemyHard();
+    int movement();
+};
 
 #endif //ENEMY_H

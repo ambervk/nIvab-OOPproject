@@ -1,8 +1,8 @@
 #include "enemy.h"
 #include "game.cpp"
 #include "player.cpp"
+#include <iostream>
 #include <vector>
-#include <iostream> ;
 
 int main() {
     game *thisGame; //create the game
@@ -10,125 +10,113 @@ int main() {
     //Title screen to choose difficulty
     // -----------------------------------------
     bool condition = false;
-    int *diff;
+    char *playcheck;
 
     while (condition == false) {
-        std::cout << "Press 1 for easy difficulty. Press 2 for hard difficulty" << std::endl;
-        std::cin >> *diff;
+        std::cout << "Press y to play" << std::endl;
+        std::cin >> *playcheck;
 
-        if (*diff != 1 || *diff != 2) {
-            cout << "Please enter only the number 1 or the number 2 to set your difficulty" << endl;
+        if (*playcheck != 'y') {
+            cout << "Please press y to play " << endl;
         } else {
             condition == true;
         }
-   
+    }
+    //-------------------------------------------------------------
+    //MAIN DRIVER OF THE GAME
+    //------------------------------------------------------------
 
-        //-------------------------------------------------------------
-        //MAIN DRIVER OF THE GAME
-        //------------------------------------------------------------
+    (*thisGame).gameOver = false;
 
-        thisGame = new game(*diff);
+    player user;
+    while ((*thisGame).gameOver == false) {
 
-        (*thisGame).gameOver = false;
-		
-		player user ; 
-        int posArr[7][2] ; 
-        while ((*thisGame).gameOver == false) {
+        enemyOneEasy enemyOne, enemyTwo;
+        enemyTwoEasy enemyThree, enemyFour;
+        enemyHard enemyFive, enemySix;
 
-            if ((*thisGame).difficulty = 1) {
-				//generate the enemies here according to what we set the difficulty as 
-  
-                enemyOneEasy enemyOne, enemyTwo ;
-				enemyTwoEasy enemyThree, enemyFour ; 
+        // we can change the initialisations of the coordinates later if we need
+        enemyOne.x = 2;
+        enemyOne.y = 2;
 
-				enemyOne.x = 2 ; 
-				enemyOne.y = 2 ; 
+        enemyTwo.x = 4;
+        enemyTwo.y = 4;
 
-				enemyTwo.x = 4 ; 
-				enemyTwo.y = 4 ; 
+        enemyThree.x = 2;
+        enemyThree.y = 8;
 
-				enemyThree.x = 2 ; 
-				enemyThree.y = 8 ; 
+        enemyFour.x = 10;
+        enemyFour.y = 10;
 
-				enemyFour.x =  10 ; 
-				enemyFour.y = 10 ; 
+        enemyFive.x = 5;
+        enemyFive.y = 10;
 
-				posArr = {{100,100},{enemyOne.x, enemyOne.y},{enemyTwo.x,enemyTwo.y},{enemyThree.x,enemyThree.y}, {enemyFour.x,enemyFour.y}} ; 
-				// we assign the last three rows to be 100 as the function printBoard() will not consider them
+        enemySix.x = 6;
+        enemySix.y = 1;
 
-            } else if ((*thisGame).difficulty = 2) {
-				enemyOneEasy enemyOne, enemyTwo ;
-				enemyTwoEasy enemyThree, enemyFour ; 
-				enemyHard enemyFive, enemySix ;  
+        int posArr[7][2] = {{100, 100}, {enemyOne.x, enemyOne.y}, {enemyTwo.x, enemyTwo.y}, {enemyThree.x, enemyThree.y}, {enemyFour.x, enemyFour.y}, {enemyFive.x, enemyFive.y}, {enemySix.x, enemySix.y}};
 
-				// we can change the initialisations of the coordinates later if we need 
-				enemyOne.x = 2 ; 
-				enemyOne.y = 2 ; 
+        user.isAlive = true;
+        int *p;
+        *p = 1; // sets the users inital position
 
-				enemyTwo.x = 4 ; 
-				enemyTwo.y = 4 ; 
+        user.x = p;
+        user.y = p;
 
-				enemyThree.x = 2 ; 
-				enemyThree.y = 8 ; 
+        (*thisGame).posArr[0][0] = *user.x;
 
-				enemyFour.x =  10 ; 
-				enemyFour.y = 10 ; 
+        (*thisGame).posArr[0][1] = *user.y;
 
-				enemyFive.x = 5 ; 
-				enemyFive.y = 10 ; 
+        //-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-
+        // this while loop plays the game
+        char inpt;
+        while (user.isAlive = true) {
+            (*thisGame).printBoard(posArr);
 
-				enemySix.x = 6 ; 
-				enemySix.y = 1 ; 
-				
-				 posArr = {{100,100},{enemyOne.x, enemyOne.y},{enemyTwo.x,enemyTwo.y},{enemyThree.x,enemyThree.y}, {enemyFour.x,enemyFour.y}, {enemyFive.x,enemyFive.y}, {enemySix.x,enemySix.y}} ;  
-            } else {
-                std::cout << "What blight have you brough upon this cursed land";
-                continue ; 
+            enemyOne.movement();
+            enemyTwo.movement();
+            enemyThree.movement();
+            enemyFour.movement();
+            enemyFive.movement();
+            enemySix.movement();
+
+            std::cin >> inpt;
+
+            user.movement(inpt);
+
+            for (int k = 1; k < 7; k++) {
+                int *p_x = &posArr[k][0];
+                int *p_y = &posArr[k][1];
+
+                if (user.checkOverlap(p_x, p_y) == true) {
+                    user.isAlive == false;
+                };
             }
-
-			user.isAlive = true ; 
-			int *p ; 
-			*p = 1 ;  // sets the users inital position
-
-			user.x = p; 
-			user.y = p;
-
-            posArr[0][0] = *user.x;
-
-            posArr[0][1] = *user.y;
-
-			//-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-
-			// this while loop plays the game 
-			while(user.isAlive = true){
-
-
-
-			} 
-			
-            //---/------/----/-----------/---/-----------/-----
-            //ending screen
-            bool condition2 = false;
-            char newGame;
-
-            while (condition2 == false) {
-                std::cout << "Would you like to play again? y/n" << std::endl;
-                std::cin >> newGame;
-
-                if (newGame != 'y' || newGame != 'n') {
-                    cout << "Please only enter y or n" << std::endl;
-                } else if (newGame == 'n') {
-                    condition2 = true;
-                    (*thisGame).gameOver == true;
-                    condition == true;
-                } else {
-                    condition2 == true;
-                    delete thisGame;
-                }
-            }
-            //---/------/----/-----------/---/-----------/-----
         }
 
-        //-------------------------------------------
-        return 0;
+        //---/------/----/-----------/---/-----------/-----
+        //ending screen
+        bool condition2 = false;
+        char newGame;
+
+        while (condition2 == false) {
+            std::cout << "Would you like to play again? y/n" << std::endl;
+            std::cin >> newGame;
+
+            if (newGame != 'y' || newGame != 'n') {
+                cout << "Please only enter y or n" << std::endl;
+            } else if (newGame == 'n') {
+                condition2 = true;
+                (*thisGame).gameOver == true;
+                condition == true;
+            } else {
+                condition2 == true;
+                delete thisGame;
+            }
+        }
+        //---/------/----/-----------/---/-----------/-----
     }
-}
+
+    //-------------------------------------------
+    return 0;
+}  ;

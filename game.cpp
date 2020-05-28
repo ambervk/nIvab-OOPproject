@@ -11,7 +11,7 @@ game::game(int diff){
 } ; 
 
 
-void game::printBoard(int posArr[7][7]){
+void game::printBoard(int posArr[7][2]){
 // input the 2d array of all possible characters on the board 
 // first row is ALWAYS the players cooridinates X and Y
 // second and third row are for two enemyOneEasy

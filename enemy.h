@@ -23,7 +23,7 @@ class enemyOneEasy : public enemy{
 
 public:
 	enemyOneEasy() ; 
-  int movement(int *x, int *y, int altX, int altY) ; //dc
+  int movement(int *x, int *y) ; //dc
 } ; 
 
 //------------------------------------------------

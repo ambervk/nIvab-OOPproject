@@ -1,7 +1,7 @@
 #include "enemy.h"
 #include "game.cpp"
 #include "player.cpp"
-
+#include <vector>
 #include <iostream> ;
 
 int main() {
@@ -32,7 +32,7 @@ int main() {
         (*thisGame).gameOver = false;
 		
 		player user ; 
-
+        int posArr[7][2] ; 
         while ((*thisGame).gameOver == false) {
 
             if ((*thisGame).difficulty = 1) {
@@ -53,7 +53,7 @@ int main() {
 				enemyFour.x =  10 ; 
 				enemyFour.y = 10 ; 
 
-				int posArr[7][7] = {{enemyOne.x, enemyOne.y},{enemyTwo.x,enemyTwo.y},{enemyThree.x,enemyThree.y}, {enemyFour.x,enemyFour.y}, {100,100}, {100,100},{100,100} } ; 
+				posArr = {{100,100},{enemyOne.x, enemyOne.y},{enemyTwo.x,enemyTwo.y},{enemyThree.x,enemyThree.y}, {enemyFour.x,enemyFour.y}} ; 
 				// we assign the last three rows to be 100 as the function printBoard() will not consider them
 
             } else if ((*thisGame).difficulty = 2) {
@@ -80,9 +80,10 @@ int main() {
 				enemySix.x = 6 ; 
 				enemySix.y = 1 ; 
 				
-				int posArr[7][7] = {{enemyOne.x, enemyOne.y},{enemyTwo.x,enemyTwo.y},{enemyThree.x,enemyThree.y}, {enemyFour.x,enemyFour.y}, {enemyFive.x,enemyFive.y}, {enemySix.x,enemySix.y},{100,100} } ; 
+				 posArr = {{100,100},{enemyOne.x, enemyOne.y},{enemyTwo.x,enemyTwo.y},{enemyThree.x,enemyThree.y}, {enemyFour.x,enemyFour.y}, {enemyFive.x,enemyFive.y}, {enemySix.x,enemySix.y}} ;  
             } else {
                 std::cout << "What blight have you brough upon this cursed land";
+                continue ; 
             }
 
 			user.isAlive = true ; 
@@ -92,10 +93,16 @@ int main() {
 			user.x = p; 
 			user.y = p;
 
+            posArr[0][0] = *user.x;
+
+            posArr[0][1] = *user.y;
+
 			//-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-
 			// this while loop plays the game 
 			while(user.isAlive = true){
-				
+
+
+
 			} 
 			
             //---/------/----/-----------/---/-----------/-----

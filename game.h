@@ -8,13 +8,13 @@
 class game{
  	// void resetBoard() ; 
 		char gameBoard[12][12];  // xx
-		int posArr[7][7]; 
+		int posArr[7][2]; 
 	public:
  	 int difficulty ;   // xx
 		game(int diff); // xx //default constructor
 		bool gameOver ; // xx 
-		void printBoard(int posArr[7][7]) ;  
-		~game() ; // xx //destructor class 
+		void printBoard(int posArr[7][2]) ;  
+		~game() ; 
 };
 
 
